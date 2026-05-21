@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- PWA 풀스크린 설정 -->
+    <!-- PWA 설정 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -29,13 +29,13 @@
             margin-bottom: 50px;
         }
         .title { 
-            font-size: 38px; 
+            font-size: 42px; 
             font-weight: 600; 
         }
         
         .grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);   /* 4열로 변경 */
+            grid-template-columns: repeat(4, 1fr);
             gap: 28px 12px;
             max-width: 420px;
             margin: 0 auto;
@@ -84,41 +84,15 @@
     </div>
 
     <div class="grid">
-        <div class="app" onclick="openLink('https://www.google.com')">
-            <div class="icon">🌐</div>
-            <div class="app-name">CHROME</div>
-        </div>
-        <div class="app" onclick="openLink('https://mail.google.com')">
-            <div class="icon">✉️</div>
-            <div class="app-name">MAIL</div>
-        </div>
-        <div class="app" onclick="openLink('https://web.telegram.org')">
-            <div class="icon">✈️</div>
-            <div class="app-name">TELEGRAM</div>
-        </div>
-        <div class="app" onclick="openLink('https://x.com')">
-            <div class="icon">❌</div>
-            <div class="app-name">X</div>
-        </div>
+        <div class="app" onclick="openLink('https://www.google.com')"><div class="icon">🌐</div><div class="app-name">CHROME</div></div>
+        <div class="app" onclick="openLink('https://mail.google.com')"><div class="icon">✉️</div><div class="app-name">MAIL</div></div>
+        <div class="app" onclick="openLink('https://web.telegram.org')"><div class="icon">✈️</div><div class="app-name">TELEGRAM</div></div>
+        <div class="app" onclick="openLink('https://x.com')"><div class="icon">❌</div><div class="app-name">X</div></div>
 
-        <div class="app" onclick="openLink('https://messages.google.com')">
-            <div class="icon">💬</div>
-            <div class="app-name">MESSAGES</div>
-        </div>
-        <div class="app" onclick="openLink('tel:')">
-            <div class="icon">📞</div>
-            <div class="app-name">PHONE</div>
-        </div>
-        <div class="app" onclick="openLink('#')">
-            <div class="icon">🏠</div>
-            <div class="app-name">EVERYDAY</div>
-        </div>
-        <div class="app" onclick="openLink('https://tesla.com')">
-            <div class="icon">🚗</div>
-            <div class="app-name">TESLA</div>
-        </div>
-
-        <!-- 필요하면 더 추가하세요 -->
+        <div class="app" onclick="openLink('https://messages.google.com')"><div class="icon">💬</div><div class="app-name">MESSAGES</div></div>
+        <div class="app" onclick="openLink('tel:')"><div class="icon">📞</div><div class="app-name">PHONE</div></div>
+        <div class="app" onclick="openLink('#')"><div class="icon">🏠</div><div class="app-name">EVERYDAY</div></div>
+        <div class="app" onclick="openLink('https://tesla.com')"><div class="icon">🚗</div><div class="app-name">TESLA</div></div>
     </div>
 
     <button class="home-btn" onclick="goHome()">Home</button>
@@ -126,14 +100,21 @@
     <script>
         function openLink(url) {
             if (url === 'tel:') {
-                window.location.href = 'tel:';
+                window.location.href = url;
             } else {
                 window.open(url, '_blank');
             }
         }
 
+        // Home 버튼 - 개선된 버전
         function goHome() {
-            window.close();           // PWA에서 홈 화면으로 나가기
+            // 방법 1: PWA에서 홈 화면으로 나가기 시도
+            window.close();
+            
+            // 방법 2: 백업 (iOS에서 더 잘 먹힘)
+            setTimeout(() => {
+                window.location.href = "about:blank";
+            }, 100);
         }
     </script>
 </body>
