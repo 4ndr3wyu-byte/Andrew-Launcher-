@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- PWA 설정 -->
+    <!-- PWA 풀스크린 설정 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -26,7 +26,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
         }
         .title { 
             font-size: 42px; 
@@ -36,7 +36,7 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 28px 12px;
+            gap: 30px 12px;
             max-width: 420px;
             margin: 0 auto;
         }
@@ -62,20 +62,6 @@
             font-weight: 500; 
             opacity: 0.85;
         }
-        
-        .home-btn {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2c2c2e;
-            color: white;
-            padding: 14px 70px;
-            border-radius: 30px;
-            font-size: 17px;
-            font-weight: 600;
-            border: none;
-        }
     </style>
 </head>
 <body>
@@ -95,8 +81,6 @@
         <div class="app" onclick="openLink('https://tesla.com')"><div class="icon">🚗</div><div class="app-name">TESLA</div></div>
     </div>
 
-    <button class="home-btn" onclick="goHome()">Home</button>
-
     <script>
         function openLink(url) {
             if (url === 'tel:') {
@@ -104,17 +88,6 @@
             } else {
                 window.open(url, '_blank');
             }
-        }
-
-        // Home 버튼 - 개선된 버전
-        function goHome() {
-            // 방법 1: PWA에서 홈 화면으로 나가기 시도
-            window.close();
-            
-            // 방법 2: 백업 (iOS에서 더 잘 먹힘)
-            setTimeout(() => {
-                window.location.href = "about:blank";
-            }, 100);
         }
     </script>
 </body>
