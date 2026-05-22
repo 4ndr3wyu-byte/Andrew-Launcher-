@@ -47,38 +47,38 @@
 </head>
 <body>
     <div class="menu">
-        <div class="menu-item" onclick="openLink('calshow://')">달력</div>
-        <div class="menu-item" onclick="openLink('tel:')">폰</div>
-        <div class="menu-item" onclick="openLink('sms:')">메세지</div>
-        <div class="menu-item" onclick="openLink('telegram://')">텔레그램</div>
-        <div class="menu-item" onclick="openLink('tesla://')">테슬라</div>
-        <div class="menu-item" onclick="openLink('shortcuts://run-shortcut?name=퇴근')">퇴근</div>
-        <div class="menu-item" onclick="openLink('notes://')">노트</div>
-        <div class="menu-item" onclick="openLink('https://smartlife.tuya.com')">SmartLife</div>
-        <div class="menu-item" onclick="openLink('mcdonalds://')">MyMaccas</div>
-        <div class="menu-item" onclick="openLink('https://www.hungryjacks.com.au')">Hungry Jack's</div>
-        <div class="menu-item" onclick="openLink('https://ukg.com')">UKG Pro</div>
-        <div class="menu-item" onclick="openLink('#')">MyISS</div>
-        <div class="menu-item" onclick="openLink('https://www.apple.com')">Safari</div>
-        <div class="menu-item" onclick="openLink('shortcuts://')">단축어</div>
-        <div class="menu-item" onclick="openLink('App-Prefs:root')">세팅</div>
-        <div class="menu-item" onclick="openLink('https://www.aliexpress.com')">알리익스프레스</div>
-        <div class="menu-item" onclick="openLink('files://')">Files</div>
-        <div class="menu-item" onclick="openLink('photos://')">포토</div>
-        <div class="menu-item" onclick="openLink('webtoons://')">웹툰</div>
-        <div class="menu-item" onclick="openLink('https://www.millie.co.kr')">밀리의 서재</div>
-        <div class="menu-item" onclick="openLink('podcasts://')">팟캐스트</div>
-        <div class="menu-item" onclick="openLink('#')">줄자</div>
-        <div class="menu-item" onclick="openLink('https://x.com')">X</div>
-        <div class="menu-item" onclick="openLink('https://scriptable.app')">Scriptable</div>
-        <div class="menu-item" onclick="openLink('github://')">GitHub</div>
-        <div class="menu-item" onclick="openLink('calculator://')">계산기</div>
-        <div class="menu-item" onclick="openLink('#')">Warframe</div>
+        <div class="menu-item" onclick="openApp('calshow://')">달력</div>
+        <div class="menu-item" onclick="openApp('tel:')">폰</div>
+        <div class="menu-item" onclick="openApp('sms:')">메세지</div>
+        <div class="menu-item" onclick="openApp('telegram://')">텔레그램</div>
+        <div class="menu-item" onclick="openApp('tesla://')">테슬라</div>
+        <div class="menu-item" onclick="openApp('shortcuts://run-shortcut?name=퇴근')">퇴근</div>
+        <div class="menu-item" onclick="openApp('notes://')">노트</div>
+        <div class="menu-item" onclick="openApp('https://smartlife.tuya.com')">SmartLife</div>
+        <div class="menu-item" onclick="openApp('mcdonalds://')">MyMaccas</div>
+        <div class="menu-item" onclick="openApp('https://www.hungryjacks.com.au')">Hungry Jack's</div>
+        <div class="menu-item" onclick="openApp('https://ukg.com')">UKG Pro</div>
+        <div class="menu-item" onclick="openApp('#')">MyISS</div>
+        <div class="menu-item" onclick="openApp('shortcuts://')">단축어</div>
+        <div class="menu-item" onclick="openApp('App-Prefs:root')">세팅</div>
+        <div class="menu-item" onclick="openApp('files://')">Files</div>
+        <div class="menu-item" onclick="openApp('webtoons://')">웹툰</div>
+        <div class="menu-item" onclick="openApp('podcasts://')">팟캐스트</div>
+        <div class="menu-item" onclick="openApp('calculator://')">계산기</div>
+        <div class="menu-item" onclick="openApp('#')">Warframe</div>
     </div>
 
     <script>
-        function openLink(url) {
+        function openApp(url) {
+            // 1차 시도
             window.location.href = url;
+            
+            // 2차 시도 (일부 앱에서 더 잘 먹힘)
+            setTimeout(() => {
+                if (document.hidden === false) {
+                    window.location.href = url;
+                }
+            }, 300);
         }
     </script>
 </body>
