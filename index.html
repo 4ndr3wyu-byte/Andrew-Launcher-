@@ -18,47 +18,35 @@
             color: white;
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             height: 100vh;
-            overflow: hidden;
-            padding: 30px 20px;
+            overflow-y: auto;           /* 세로 스크롤 활성화 */
+            padding: 40px 20px 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .header {
-            margin-bottom: 70px;
-        }
-        .title { 
-            font-size: 48px; 
-            font-weight: 600; 
-        }
-        
         .menu {
             display: flex;
             flex-direction: column;
-            gap: 35px;
+            gap: 18px;                  /* 줄 간격 50% 줄임 */
             width: 100%;
             max-width: 380px;
         }
         .menu-item {
-            font-size: 26px;
+            font-size: 17px;            /* 기존 대비 약 65% 크기 */
             font-weight: 500;
             text-align: center;
-            padding: 12px 0;
+            padding: 14px 0;
             color: #ffffff;
             transition: all 0.2s;
             cursor: pointer;
         }
         .menu-item:active {
-            color: #aaaaaa;
-            transform: scale(0.95);
+            color: #888888;
+            transform: scale(0.96);
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="title">😊</div>
-    </div>
-
     <div class="menu">
         <div class="menu-item" onclick="openLink('https://www.google.com')">CHROME</div>
         <div class="menu-item" onclick="openLink('https://mail.google.com')">MAIL</div>
@@ -68,6 +56,9 @@
         <div class="menu-item" onclick="openLink('tel:')">PHONE</div>
         <div class="menu-item" onclick="openLink('#')">EVERYDAY</div>
         <div class="menu-item" onclick="openLink('https://tesla.com')">TESLA</div>
+        
+        <!-- 여기에 계속 추가하세요 -->
+        <!-- <div class="menu-item" onclick="openLink('URL')">앱이름</div> -->
     </div>
 
     <script>
